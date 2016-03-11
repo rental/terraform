@@ -5,6 +5,6 @@ number_of_instance = 1
 vm_name.0 = "test-db1"
 vm_ip.0 = "10.0.0.110"
 vm_user = "azureuser"
-vm_pass = "BHff#AJt4"
+vm_pass = "azureuser"
 vm_size = "Basic_A1"
 vm_image = "IMAGE"
