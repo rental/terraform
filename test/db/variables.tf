@@ -3,6 +3,10 @@ variable "vm_name" {
     default = {}
 }
 
+variable "vm_ip" {
+    default = {}
+}
+
 variable "number_of_instance" {
         description = "number of instances to make"
         default = 1

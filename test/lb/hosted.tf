@@ -1,4 +1,4 @@
-resource "azure_instance" "web" {
+resource "azure_instance" "lb" {
     count = "${var.number_of_instance}" 
     name = "${lookup(var.vm_name, count.index)}"
     image = "${var.vm_image}"
@@ -24,6 +24,6 @@ resource "azure_instance" "web" {
     }
 
     provisioner "local-exec" {
-        command = "/usr/bin/azure vm static-ip set ${self.name} ${self.ip_address}"
+        command = "/usr/bin/azure vm static-ip set ${self.name} ${lookup(var.vm_ip, count.index)}"
     }
 }

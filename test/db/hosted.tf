@@ -1,4 +1,4 @@
-resource "azure_instance" "web" {
+resource "azure_instance" "db" {
     count = "${var.number_of_instance}" 
     name = "${lookup(var.vm_name, count.index)}"
     image = "${var.vm_image}"
@@ -16,14 +16,8 @@ resource "azure_instance" "web" {
         public_port = 22
         private_port = 22
     }
-    endpoint {
-        name = "HTTP"
-        protocol = "tcp"
-        public_port = 80
-        private_port = 80
-    }
 
     provisioner "local-exec" {
-        command = "/usr/bin/azure vm static-ip set ${self.name} ${self.ip_address}"
+        command = "/usr/bin/azure vm static-ip set ${self.name} ${lookup(var.vm_ip, count.index)}"
     }
 }
