@@ -29,7 +29,7 @@ resource "azure_instance" "web" {
     provisioner "remote-exec" {
         inline = [
         "mkdir /mnt/resource/tmp",
-        "git clone git@github.com:rental/webcontent.git /mnt/resource/",
+        "git clone git@github.com:rental/webcontent.git /mnt/resource/tmp",
         "mv /mnt/resource/tmp/wordpress /var/www/",
         "chown -R apache. /var/www/wordpress",
         "/etc/init.d/httpd restart"
