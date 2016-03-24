@@ -27,6 +27,11 @@ resource "azure_instance" "web" {
         command = "/usr/bin/azure vm static-ip set ${var.vm_name} ${var.vm_ip}"
     }
     provisioner "remote-exec" {
+        connection {
+            type = "ssh"
+            user = "nnet"
+            password = "nnet"
+        }
         inline = [
         "sleep 30",
         "sudo mv /var/www{,.org}",
