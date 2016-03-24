@@ -1,11 +1,4 @@
 # Module specific  variables
-variable "vm_name" {
-    default = {}
-}
-
-variable "vm_ip" {
-    default = {}
-}
 
 variable "number_of_instance" {
         description = "number of instances to make"
@@ -32,7 +25,10 @@ variable "vm_subnet" {
         default = "Subnet-1"
 }
 
+variable "vm_name" {}
+variable "vm_ip" {}
 variable "vm_size" {}
 variable "vm_user" {}
 variable "vm_pass" {}
 variable "vm_image" {}
+variable "commitid" {}
