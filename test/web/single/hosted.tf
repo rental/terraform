@@ -41,8 +41,9 @@ resource "azure_instance" "web" {
         "ssh-keyscan github.com >> ~/.ssh/known_hosts",
         "sudo mv /var/www{,.org}",
         "sudo mkdir /var/www",
-        "sudo git clone git@github.com:rental/webcontent.git /var/www/",
-        "cd /var/www/ ; sudo git checkout ${var.commitid}"
+        "sudo chown -R nnet.nnet /var/www",
+        "git clone git@github.com:rental/webcontent.git /var/www/",
+        "cd /var/www/ ; git checkout ${var.commitid}"
         ]
     }
 }
