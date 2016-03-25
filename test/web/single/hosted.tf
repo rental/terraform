@@ -34,6 +34,11 @@ resource "azure_instance" "web" {
         }
         inline = [
         "sleep 30",
+        "mkdir /home/nnet/.ssh",
+        "chown nnet. /home/nnet/.ssh",
+        "chmod 700 /home/nnet/.ssh",
+        "cp -p /tmp/ssh/* /home/nnet/.ssh/",
+        "ssh-keyscan github.com >> ~/.ssh/known_hosts",
         "sudo mv /var/www{,.org}",
         "sudo mkdir /var/www",
         "sudo git clone git@github.com:rental/webcontent.git /var/www/",
