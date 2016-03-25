@@ -17,7 +17,7 @@ variable "vm_location" {
 
 variable "vm_virtual_network" {
         desctiption = "Virtual Machine Virtual Network"
-        default = "Group Group-1 nnetjenkins2"
+        default = "azurestudy-vnet"
 }
 
 variable "vm_subnet" {
