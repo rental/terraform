@@ -35,10 +35,10 @@ resource "azure_instance" "web" {
         inline = [
         "sleep 30",
         "mkdir /home/nnet/.ssh",
-        "chown nnet. /home/nnet/.ssh",
-        "chmod 700 /home/nnet/.ssh",
-        "cp -p /tmp/ssh/* /home/nnet/.ssh/",
         "ssh-keyscan github.com >> ~/.ssh/known_hosts",
+        "sudo cp -p /tmp/ssh/* /home/nnet/.ssh/",
+        "sudo chmod 700 /home/nnet/.ssh/",
+        "sudo chown -R nnet.nnet /home/nnet/.ssh/",
         "sudo mv /var/www{,.org}",
         "sudo mkdir /var/www",
         "sudo chown -R nnet.nnet /var/www",
